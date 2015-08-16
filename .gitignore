@@ -1,0 +1,11 @@
+elpa
+session*
+recentf
+tramp
+bookmarks
+*.elc
+*~
+*#
+*lock
+*log
+
