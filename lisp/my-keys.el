@@ -102,3 +102,17 @@
 ;; (define-key global-map [M-f12] set_bidi_on())
 
 ;; (define-key global-map [M-f11] set_bidi_of())
+
+
+;; ar: doesn't work... at least doesn't change the language for flyspell.
+(setq-default ispell-dictionary "english")
+(defun my-switch-dictionarry()
+  (interactive)
+  (let* ((dic (if (boundp 'ispell-local-dictionary) ispell-local-dictionary ispell-dictionary))
+	 (change (if (string= dic "he") "english" "he")))
+    (set (make-local-variable 'ispell-local-dictionary) change)
+    (message "Dictionary switched to %s" change)
+    ))
+
+(global-set-key (kbd "C-c d c") 'my-switch-dictionarry)
+;; (global-set-key '[(f8)]		'my-switch-dictionarry)

@@ -169,8 +169,14 @@ If the new path's directories does not exist, create them."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(ansi-color-names-vector
+   ["#242424" "#e5786d" "#95e454" "#cae682" "#8ac6f2" "#333366" "#ccaa8f" "#f6f3e8"])
  '(blink-cursor-mode nil)
- '(bmkp-last-as-first-bookmark-file "/home/amit/.emacs.d/bookmarks")
+ '(bmkp-last-as-first-bookmark-file "~/.emacs.d/bookmarks")
+ '(custom-enabled-themes (quote (wheatgrass)))
+ '(custom-safe-themes
+   (quote
+    ("8db4b03b9ae654d4a57804286eb3e332725c84d7cdab38463cb6b97d5762ad26" default)))
  '(find-ls-option (quote ("-exec ls -ldh {} +" . "-ldh")))
  '(safe-local-variable-values (quote ((encoding . utf-8))))
  '(show-paren-mode t))

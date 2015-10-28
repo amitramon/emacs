@@ -36,6 +36,9 @@
       (append '(("\\.rst$" . rst-mode)
                 ("\\.rest$" . rst-mode)) auto-mode-alist))
 
+(setq auto-mode-alist
+      (append '(("\\.md$" . markdown-mode)) auto-mode-alist))
+
 ;; Automatically go into mail-mode if filename starts with /tmp/mutt
 (setq auto-mode-alist (append (list (cons "^\/tmp\/mutt" 'mail-mode))
 			      auto-mode-alist))
@@ -52,6 +55,7 @@ otherwise to the begining of text."
 			     (auto-fill-mode 1)
 			     (setq desktop-save nil)
 			     (set-input-method "hebrew-custom-lyx")
+			     (setq ispell-local-dictionary "he")
 			     (mail-subject-or-text)) t)
 
 

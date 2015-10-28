@@ -3,7 +3,15 @@ session*
 recentf
 tramp
 bookmarks
+
+# Compiled
 *.elc
+
+# Packaging
+.cask
+
+*.desktop
+
 *~
 *#
 *lock
