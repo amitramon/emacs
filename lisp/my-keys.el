@@ -2,7 +2,7 @@
 ;; (define-key global-map "\C-x\C-k"   'kill-region) ; default bind: edit-kbd-macro
 ;; (define-key global-map "\C-w"       'backward-kill-word) ; default bind: kill-region
 
-(global-set-key (kbd "C-x C-b") 'buffer-menu) ; default bind: buffer-list
+(global-set-key (kbd "C-x C-b") 'ibuffer) ; default bind: buffer-list
 
 (global-set-key (kbd "C-c t") 'beginning-of-buffer)
 (global-set-key (kbd "C-c e") 'end-of-buffer)

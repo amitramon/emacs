@@ -3,8 +3,9 @@
 ;; Diary & Calendar
 ;;-----------------------
 
-(setq calendar-latitude 32.28)
-(setq calendar-longitude 34.95)
+;; 32.2853,34.9467
+(setq calendar-latitude 32.2853)
+(setq calendar-longitude 34.9467)
 (setq calendar-location-name "Raanana, IL")
 (setq calendar-time-zone +120)
 (setq calendar-standard-time-zone-name "IST")
