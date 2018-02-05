@@ -15,13 +15,15 @@
 (load-library "quail-custom-keyboard-layouts") ; Custom layouts not installed with Emacs
 (quail-set-keyboard-layout "us-dvorak")	       ; Set current keyboard layout
 
-(load-library "hebrew-custom")			; Hebrew input methods
+;; this is my custom hebrew mode - lest try the standard mode...
+;; (load-library "hebrew-custom")			; Hebrew input methods
+;; (setq default-input-method "hebrew-custom-lyx")
+(setq default-input-method "hebrew")
+
 ;; (load-library "hebrew-scot")			; Hebrew input
 ;; 						; methods, made by
 ;; 						; Yair F., sent to me
 ;; 						; by Scot.
-
-(setq default-input-method "hebrew-custom-lyx")
 
 (setq-default bidi-display-reordering t)
 
@@ -33,7 +35,10 @@
 ;------------------------------------------------------------
 (load-library "my-utils")    ; general utilities
 (load-library "my-keys")     ; key bindings & functions
-(load-library "my-calendar") ; calendar customizations
+
+;; not working in emacs25?
+;; (load-library "my-calendar") ; calendar customizations
+
 (load-library "my-modes")    ; customizations to modes & hooks
 (load-library "my-rst")	     ; reStructures text customizations
 (load-library "my-dict")     ; dictionary customizations
@@ -65,6 +70,9 @@
 ;------------------------------------------------------------
 
 (defalias 'list-buffers 'ibuffer) ; make ibuffer default
+
+;; use python3 for python shell
+(setq python-shell-interpreter "/usr/bin/python3")
 
 ;------------------------------------------------------------
 ; Misc settings
@@ -178,6 +186,9 @@ If the new path's directories does not exist, create them."
    (quote
     ("8db4b03b9ae654d4a57804286eb3e332725c84d7cdab38463cb6b97d5762ad26" default)))
  '(find-ls-option (quote ("-exec ls -ldh {} +" . "-ldh")))
+ '(package-selected-packages
+   (quote
+    (realgud markdown-mode magit dash-functional undo-tree lua-mode fvwm-mode color-theme-solarized bookmark+)))
  '(safe-local-variable-values (quote ((encoding . utf-8))))
  '(show-paren-mode t))
 (custom-set-faces

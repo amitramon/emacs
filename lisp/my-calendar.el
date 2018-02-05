@@ -17,7 +17,7 @@
 	  '(lambda ()
 	     ;;(setq mark-holidays-in-calendar t)
 	     ;;(define-key calendar-mode-map "\C-x<" 'scroll-calendar-right)
-	     (set-face-foreground 'diary-face   "magenta")
+	     ;; (set-face-foreground 'diary-face   "magenta") ;; troubles with emacs 25?
 	     (set-face-foreground 'calendar-today-face "white")
 	     (set-face-background 'calendar-today-face "green")
 	     ;;(set-face-background 'holiday-face "slate blue")

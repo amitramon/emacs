@@ -5,7 +5,7 @@
 (global-set-key (kbd "C-x C-b") 'ibuffer) ; default bind: buffer-list
 
 (global-set-key (kbd "C-c t") 'beginning-of-buffer)
-(global-set-key (kbd "C-c e") 'end-of-buffer)
+(global-set-key (kbd "C-c b") 'end-of-buffer)
 (global-set-key (kbd "C-c C-m") 'execute-extended-command)
 (global-set-key (kbd "C-c g") 'goto-line)
 (global-set-key (kbd "C-c w") 'woman)
@@ -63,13 +63,13 @@
 (global-set-key (kbd "C-c d s") 'ispell-word)
 
 
-(define-key global-map [M-down] '(lambda()
+(define-key global-map [A-down] '(lambda()
 				   "scroll down, cursor remains in place"
 				   (interactive)
 				   (scroll-up 1)
 				   (next-line 1)))
 
-(define-key global-map [M-up] '(lambda()
+(define-key global-map [A-up] '(lambda()
 				 "scroll up, cursor remains in place"
 				 (interactive)
 				 (scroll-up -1)

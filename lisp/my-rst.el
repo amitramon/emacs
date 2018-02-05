@@ -5,12 +5,17 @@
 (add-hook 'rst-mode-hook
 	  '(lambda ()
 	     (turn-on-font-lock)
+	     (electric-indent-local-mode -1)
 	     ;(set-face-foreground 'rst-comment-face   "magenta")
 	     ;(set-face-foreground 'rst-directive-face   "blue")
 	     ;(set-face-foreground 'font-lock-function-name-face   "red")
 	     ;(set-face-foreground 'font-lock-comment-face   "green")
 	     ;; (message "I am here")
 	     ))
+
+;; Note: electric-indent-mode seems to be causing indentation problems
+;; with rst-mode
+
 
 (setq rst-compile-toolsets
   '((html . ("rst2html" ".html" nil))
