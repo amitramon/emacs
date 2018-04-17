@@ -61,14 +61,14 @@ otherwise to the begining of text."
 
 ;; sort corrections by likeliness
 (setq flyspell-sort-corrections nil)
-(add-hook 'flyspell-mode-hook '(lambda()
-				 (define-key flyspell-mode-map "\C-cs" 'my-spell)
-				 (define-key flyspell-mode-map "\C-c," 'flyspell-goto-next-error)
-				 (define-key flyspell-mode-map "\C-cת" 'flyspell-goto-next-error)
-				 (define-key flyspell-mode-map "\C-c." 'flyspell-auto-correct-word)
-				 (define-key flyspell-mode-map "\C-cץ" 'flyspell-auto-correct-word)
-				 (define-key flyspell-mode-map "\C-c;" 'flyspell-auto-correct-previous-word)
-				 (define-key flyspell-mode-map "\C-cף" 'flyspell-auto-correct-previous-word)))
+;; (add-hook 'flyspell-mode-hook '(lambda()
+;; 				 (define-key flyspell-mode-map "\C-cs" 'my-spell)
+;; 				 (define-key flyspell-mode-map "\C-c," 'flyspell-goto-next-error)
+;; 				 (define-key flyspell-mode-map "\C-cת" 'flyspell-goto-next-error)
+;; 				 (define-key flyspell-mode-map "\C-c." 'flyspell-auto-correct-word)
+;; 				 (define-key flyspell-mode-map "\C-cץ" 'flyspell-auto-correct-word)
+;; 				 (define-key flyspell-mode-map "\C-c;" 'flyspell-auto-correct-previous-word)
+;; 				 (define-key flyspell-mode-map "\C-cף" 'flyspell-auto-correct-previous-word)))
 
 
 (add-hook 'dired-mode-hook '(lambda ()

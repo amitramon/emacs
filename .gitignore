@@ -17,3 +17,8 @@ bookmarks
 *lock
 *log
 
+games
+
+# emacs backup and auto-save directories
+.backup
+.auto-save-list
