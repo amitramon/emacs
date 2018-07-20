@@ -72,10 +72,43 @@
 
 (defalias 'list-buffers 'ibuffer) ; make ibuffer default
 
-;; use python3 for python shell
-(setq python-shell-interpreter "/usr/bin/python3")
-
 (setq compile-command "make -k ")
+
+
+;------------------------------------------------------------
+; Python configuration
+;------------------------------------------------------------
+
+(elpy-enable)				; python elpy
+
+;; use python3 for python shell
+(setq python-shell-interpreter "ipython3"
+      python-shell-interpreter-args "-i --simple-prompt")
+
+;; use jupyter 
+;; (setq python-shell-interpreter "jupyter"
+;;       python-shell-interpreter-args "console --simple-prompt" ; --kernel=python3
+;;       python-shell-prompt-detect-failure-warning nil)
+
+;; (add-to-list 'python-shell-completion-native-disabled-interpreters
+;;              "jupyter")
+
+
+;; use flycheck not flymake with elpy
+(when (require 'flycheck nil t)
+  (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
+  (add-hook 'elpy-mode-hook 'flycheck-mode))
+
+;; flychek hely says:
+;; (add-hook 'after-init-hook #'global-flycheck-mode)
+
+;; enable autopep8 formatting on save
+(require 'py-autopep8)
+(add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save)
+(add-hook 'python-mode-hook 'py-autopep8-enable-on-save)
+
+
+
 
 ;------------------------------------------------------------
 ; Misc settings

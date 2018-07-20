@@ -27,7 +27,7 @@
 (global-set-key (kbd "<C-f8>") 'first-error)
 (global-set-key (kbd "<f8>") 'next-error)
 (global-set-key (kbd "<S-f8>") 'previous-error)
-(global-set-key (kbd "<f5>") 'magit-status)
+;; (global-set-key (kbd "<f5>") 'magit-status)
 (global-set-key (kbd "<f6>") 'scroll-right)
 (global-set-key (kbd "<f7>") 'scroll-left)
 (global-set-key (kbd "<f9>") 'compile)
@@ -37,6 +37,9 @@
 (global-set-key (kbd "<kp-add>") 'enlarge-window)
 (global-set-key (kbd "<kp-subtract>") 'shrink-window)
 (global-set-key (kbd "<kp-decimal>") 'what-cursor-position)
+
+(global-set-key (kbd "C-x M-g") 'magit-dispatch-popup)
+(global-set-key (kbd "C-x g") 'magit-status)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -95,9 +98,9 @@
 			     (interactive)
 			     (scroll-down 1)))
 
-; saves the state of `bidi-paragraph-direction' per buffer
+(defvar my-bidi-paragraph-ordering 0
+  "saves the state of `bidi-paragraph-direction' per buffer")
 (make-variable-buffer-local 'my-bidi-paragraph-ordering)
-(setq-default my-bidi-paragraph-ordering 0)
 
 (defun toggle-paragraph-bidi-ordering()
   "Toggles the values of `bidi-paragraph-direction'"

@@ -31,6 +31,8 @@
 
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
 
+(require 'yaml-mode)
+(add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
 
 (setq auto-mode-alist
       (append '(("\\.rst$" . rst-mode)
@@ -39,9 +41,9 @@
 (setq auto-mode-alist
       (append '(("\\.md$" . markdown-mode)) auto-mode-alist))
 
-;; Automatically go into mail-mode if filename starts with /tmp/mutt
-(setq auto-mode-alist (append (list (cons "^\/tmp\/mutt" 'mail-mode))
-			      auto-mode-alist))
+;; mutt and neomutt mail
+(add-to-list 'auto-mode-alist '("^/tmp/mutt" . mail-mode))
+(add-to-list 'auto-mode-alist '("^/tmp/neomutt" . mail-mode))
 
 
 (defun mail-subject-or-text ()

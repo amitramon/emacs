@@ -25,11 +25,21 @@
 ;; https://realpython.com/emacs-the-best-python-editor/
 
 ;; (package-initialize)
-;; (defvar myPackages
-;;   '(better-defaults
-;;     material-theme))
+(defvar myPackages
+  '(elpy
+    magit
+    dash))
 
-;; (mapc #'(lambda (package)
-;;     (unless (package-installed-p package)
-;;       (package-install package)))
-;;       myPackages)
+
+(setq myPackages
+  '(ein ;; add the ein package (Emacs ipython notebook)
+    elpy
+    magit
+    dash
+    flycheck
+    py-autopep8))
+
+(mapc #'(lambda (package)
+    (unless (package-installed-p package)
+      (package-install package)))
+      myPackages)
