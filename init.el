@@ -108,6 +108,8 @@
 (add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save)
 (add-hook 'python-mode-hook 'py-autopep8-enable-on-save)
 
+;; test to verify this is necessary
+(setq elpy-rpc-backend "jedi")
 
 
 

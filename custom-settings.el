@@ -7,7 +7,7 @@
  '(bmkp-last-as-first-bookmark-file "~/.emacs.d/bookmarks")
  '(package-selected-packages
    (quote
-    (py-autopep8 multi-web-mode web-mode docker-compose-mode dockerfile-mode dash "dash" elpy yaml-mode realgud markdown-mode magit dash-functional undo-tree lua-mode fvwm-mode bookmark+)))
+    (py-autopep8 web-mode docker-compose-mode dockerfile-mode dash "dash" elpy yaml-mode realgud markdown-mode magit dash-functional undo-tree lua-mode fvwm-mode bookmark+)))
  '(safe-local-variable-values (quote ((encoding . utf-8)))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
