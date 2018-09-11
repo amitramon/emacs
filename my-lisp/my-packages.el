@@ -31,13 +31,15 @@
     dash))
 
 
-(setq myPackages
-  '(ein ;; add the ein package (Emacs ipython notebook)
-    elpy
-    magit
-    dash
-    flycheck
-    py-autopep8))
+(setq myPackages '(ein ;; add the ein package (Emacs ipython notebook)
+		   py-autopep8 multi-web-mode web-mode
+		   docker-compose-mode dockerfile-mode dash elpy yaml-mode
+		   realgud markdown-mode magit dash-functional undo-tree lua-mode
+		   fvwm-mode))
+
+;; flychek -- unavailable?
+;; "dash"
+;; bookmark+
 
 (mapc #'(lambda (package)
     (unless (package-installed-p package)

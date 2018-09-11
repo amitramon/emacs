@@ -11,8 +11,6 @@
 
 (add-to-list 'load-path (my/rel-to-emacs-dir-path "my-lisp"))
 
-(load "dictionary-init")
-
 ;------------------------------------------------------------
 ; Load some libraries
 ;------------------------------------------------------------
@@ -23,6 +21,9 @@
 ;; You may delete these explanatory comments.
 ;; (package-initialize)
 (load "my-packages") ; ELPA management, calls (package-initialize)
+
+(load "dictionary")
+
 
 ;------------------------------------------------------------
 ; keyboard & input methods

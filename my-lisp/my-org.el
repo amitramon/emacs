@@ -11,6 +11,8 @@
 ; I prefer return to activate a link
 (setq org-return-follows-link t)
 
+(setq org-use-sub-superscripts '{})
+
 (org-babel-do-load-languages 'org-babel-load-languages
 			     '((emacs-lisp . t) (python . t)))
 
