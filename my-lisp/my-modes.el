@@ -95,3 +95,15 @@ otherwise to the begining of text."
 
 (add-hook 'dired-load-hook
 	  (function (lambda () (load "dired-x"))))
+
+;;; xkcd-rand is originaly bound to "r", but "r" is masked
+;;; by imagemagick
+(add-hook 'xkcd-mode-hook '(lambda ()
+			     (define-key xkcd-mode-map
+			       (kbd "R")
+			       'xkcd-rand)
+			     (define-key xkcd-mode-map
+			       (kbd "G")
+			       'xkcd-get)
+			     ))
+

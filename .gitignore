@@ -4,6 +4,12 @@ recentf
 tramp
 bookmarks
 
+cider-history
+eshell
+ido.last
+transient
+xkcd
+
 # Compiled
 *.elc
 

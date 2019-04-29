@@ -4,12 +4,25 @@
 ;; (defvar *my/emacs-dir* (file-name-directory user-init-file)
 ;;   "The directory containing Emacs' init file and other user files")
 
-(defun my/rel-to-emacs-dir-path(relpath)
-  "Create the full path of 'relpath' relative to the user's Emacs' directory."
+(defun my/update-path (dir)
+  "Add dir to system path"
+  (if (file-exists-p dir)
+      (add-to-list 'exec-path dir)))
+
+
+(defun my/rel-to-emacs-dir-path (relpath)
+  "Create the full path of 'relpath' relative to the user's
+Emacs' directory."
   (concat user-emacs-directory
 	  (convert-standard-filename relpath)))
 
 (add-to-list 'load-path (my/rel-to-emacs-dir-path "my-lisp"))
+
+;;; When running Emacs as a systemd user service it doesn't pick the
+;;; user's path, so we update it here
+(my/update-path "~/scripts")
+(my/update-path "~/bin")
+(my/update-path "~/.local/bin")
 
 ;------------------------------------------------------------
 ; Load some libraries
@@ -22,8 +35,26 @@
 ;; (package-initialize)
 (load "my-packages") ; ELPA management, calls (package-initialize)
 
+;;; TMPFIX: call this after package-initialize to add load subdirs
+;;; before elpa in order to load fixed version of dictionary.el
+(add-to-list 'load-path "~/src/dictionary-el")
+
 (load "dictionary")
 
+
+;;------------------------------------------------------------
+;; ido
+;;------------------------------------------------------------
+;; thanks to "Mastering Emacs" for some tips
+;; https://masteringemacs.org/article/introduction-to-ido-mode
+(setq ido-enable-flex-matching t)
+(setq ido-everywhere t)
+(setq ido-file-extensions-order '(".org" ".txt" ".py"
+				  ".el" ".clj" ".cljs"
+				  ".xml" ".el" ".ini"
+				  ".cfg" ".cnf"))
+(setq ido-create-new-buffer 'always)
+(ido-mode 1)
 
 ;------------------------------------------------------------
 ; keyboard & input methods
@@ -49,6 +80,14 @@
 (load "my-org")	     ; org-mode settings
 (load "my-desktop")  ; desktop-mode settings
 
+;; Clojure for the brave and true - below
+;; For editing lisps
+(load "elisp-editing.el")
+;; Langauage-specific
+(load "setup-clojure.el")
+;; (load "setup-js.el")
+
+
 ;------------------------------------------------------------
 ; UI & Fonts
 ;------------------------------------------------------------
@@ -64,8 +103,18 @@
 (setq transient-mark-mode t)
 (show-paren-mode t)
 
-(set-face-foreground 'highlight "white")
-(set-face-background 'highlight "blue")
+;; (set-face-foreground 'highlight "white")
+;; (set-face-background 'highlight "blue")
+(set-face-attribute 'default nil :height 140)
+
+;; settings for new frames, e.g. those open by emacsclient --- the
+;; font setting override the height setting above. not sure I need it.
+;; (add-to-list 'default-frame-alist '(font . "Lucida Sans
+;; Typewriter-10"))
+
+(load-theme 'solarized-dark t)
+;; (load-theme 'wombat t)
+;; (load-theme 'solarized-light t)
 
 ;------------------------------------------------------------
 ; Tools
@@ -163,8 +212,6 @@ If the new path's directories does not exist, create them."
 (setq auto-save-list-file-prefix (my/rel-to-emacs-dir-path ".auto-save-list/saves-"))
 
 (setq woman-use-own-frame nil)
-;; settings for new frames, e.g. those open by emacsclient
-(add-to-list 'default-frame-alist '(font . "Lucida Sans Typewriter-10"))
 
 (setq custom-file (my/rel-to-emacs-dir-path "custom-settings.el"))
 (load custom-file)
