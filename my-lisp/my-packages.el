@@ -127,6 +127,9 @@
 
 	;; Clojure exercises
 	4clojure
+
+	;; needed by org-mode to generate HTML
+	htmlize
 	)
       )
 

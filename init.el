@@ -116,6 +116,10 @@ Emacs' directory."
 ;; (load-theme 'wombat t)
 ;; (load-theme 'solarized-light t)
 
+;;; display line number in all buffers
+;;; use display-line-numbers-mode to toggle for specific buffer
+(global-display-line-numbers-mode)
+
 ;------------------------------------------------------------
 ; Tools
 ;------------------------------------------------------------
