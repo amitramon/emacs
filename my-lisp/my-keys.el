@@ -49,6 +49,9 @@
 (global-set-key (kbd "<f2>") 'rgrep) ; replace 2-column commands (bound also to C-x 6)
 (global-set-key (kbd "M-o") 'other-window) ; replace 'set-face-...
 
+;;; replace delete-other-windows
+(global-set-key (kbd "C-x 1") 'delete-other-windows-vertically)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 

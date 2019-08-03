@@ -65,6 +65,7 @@ Emacs' directory."
 
 (setq default-input-method "hebrew")
 (setq-default bidi-display-reordering t)
+(windmove-default-keybindings)
 
 ;------------------------------------------------------------
 ; Load my libraries

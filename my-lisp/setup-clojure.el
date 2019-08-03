@@ -80,3 +80,23 @@
      (define-key clojure-mode-map (kbd "C-M-r") 'cider-refresh)
      (define-key clojure-mode-map (kbd "C-c u") 'cider-user-ns)
      (define-key cider-mode-map (kbd "C-c u") 'cider-user-ns)))
+
+
+;; https://github.com/weavejester/compojure/wiki/Emacs-indentation
+;; Place the function call requiring `clojure-mode` after the call to `package-initialize`
+;; if you are using Emacs version 24.1.1
+;; (require 'clojure-mode)
+
+(define-clojure-indent
+  (defroutes 'defun)
+  (GET 2)
+  (POST 2)
+  (PUT 2)
+  (DELETE 2)
+  (HEAD 2)
+  (ANY 2)
+  (OPTIONS 2)
+  (PATCH 2)
+  (rfn 2)
+  (let-routes 1)
+  (context 2))
