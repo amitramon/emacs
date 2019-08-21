@@ -23,6 +23,10 @@ Emacs' directory."
 (my/update-path "~/scripts")
 (my/update-path "~/bin")
 (my/update-path "~/.local/bin")
+(my/update-path "/usr/local/bin") ;; for mac
+
+;; hack to allow connecting to elpa (bug in emacs)
+(setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
 
 ;------------------------------------------------------------
 ; Load some libraries
@@ -37,9 +41,9 @@ Emacs' directory."
 
 ;;; TMPFIX: call this after package-initialize to add load subdirs
 ;;; before elpa in order to load fixed version of dictionary.el
-(add-to-list 'load-path "~/src/dictionary-el")
+;;; (add-to-list 'load-path "~/src/dictionary-el")
 
-(load "dictionary")
+;;;(load "dictionary")
 
 
 ;;------------------------------------------------------------
