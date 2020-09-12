@@ -8,6 +8,15 @@
 (setq c-label-offset                 -4)
 (setq c-auto-newline                "t")
 
+;;; OpenGL GLSL shader files
+(add-to-list 'auto-mode-alist '("\\.glsl\\'" . c-mode))
+(add-to-list 'auto-mode-alist '("\\.vert\\'" . c-mode))
+(add-to-list 'auto-mode-alist '("\\.geom\\'" . c-mode))
+(add-to-list 'auto-mode-alist '("\\.frag\\'" . c-mode))
+(add-to-list 'auto-mode-alist '("\\.vs\\'" . c-mode))
+(add-to-list 'auto-mode-alist '("\\.fs\\'" . c-mode))
+(add-to-list 'auto-mode-alist '("\\.gs\\'" . c-mode))
+
 
 (add-to-list 'auto-mode-alist '("\\.js\\'" . javascript-mode))
 (autoload 'javascript-mode "javascript" nil t)

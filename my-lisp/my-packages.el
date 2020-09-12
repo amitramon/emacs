@@ -130,6 +130,12 @@
 
 	;; needed by org-mode to generate HTML
 	htmlize
+
+	;; R
+	ess
+	ess-R-data-view
+	ess-smart-equals
+	ess-smart-underscore
 	)
       )
 
