@@ -134,8 +134,12 @@
 	;; R
 	ess
 	ess-R-data-view
-	ess-smart-equals
-	ess-smart-underscore
+	;; ess-smart-equal
+	;; ess-smart-underscore
+	ess-view
+	polymode
+	poly-markdown
+	poly-R
 	)
       )
 

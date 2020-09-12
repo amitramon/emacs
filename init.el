@@ -90,6 +90,7 @@ Emacs' directory."
 (load "elisp-editing.el")
 ;; Langauage-specific
 (load "setup-clojure.el")
+(load "setup-R.el")
 ;; (load "setup-js.el")
 
 
