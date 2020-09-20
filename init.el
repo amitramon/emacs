@@ -236,3 +236,4 @@ If the new path's directories does not exist, create them."
 
 (require 'find-dired)
 (setq find-ls-option '("-print0 | xargs -0 ls -ld" . "-ld"))
+(put 'erase-buffer 'disabled nil)

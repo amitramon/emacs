@@ -31,16 +31,16 @@
  '(highlight-tail-colors
    (quote
     (("#073642" . 0)
-     ("#546E00" . 20)
-     ("#00736F" . 30)
-     ("#00629D" . 50)
-     ("#7B6000" . 60)
-     ("#8B2C02" . 70)
-     ("#93115C" . 85)
+     ("#5b7300" . 20)
+     ("#007d76" . 30)
+     ("#0061a8" . 50)
+     ("#866300" . 60)
+     ("#992700" . 70)
+     ("#a00559" . 85)
      ("#073642" . 100))))
  '(hl-bg-colors
    (quote
-    ("#7B6000" "#8B2C02" "#990A1B" "#93115C" "#3F4D91" "#00629D" "#00736F" "#546E00")))
+    ("#866300" "#992700" "#a7020a" "#a00559" "#243e9b" "#0061a8" "#007d76" "#5b7300")))
  '(hl-fg-colors
    (quote
     ("#002b36" "#002b36" "#002b36" "#002b36" "#002b36" "#002b36" "#002b36" "#002b36")))
@@ -48,10 +48,11 @@
  '(magit-diff-use-overlays nil)
  '(nrepl-message-colors
    (quote
-    ("#dc322f" "#cb4b16" "#b58900" "#546E00" "#B4C342" "#00629D" "#2aa198" "#d33682" "#6c71c4")))
+    ("#dc322f" "#cb4b16" "#b58900" "#5b7300" "#b3c34d" "#0061a8" "#2aa198" "#d33682" "#6c71c4")))
  '(package-selected-packages
    (quote
     (poly-R poly-markdown ess-view ess-smart-equals ess-smart-equal ess-R-data-view ess spinner ein htmlize 4clojure xkcd which-key solarized-theme rainbow-delimiters cider clojure-mode-extra-font-locking clojure-mode paredit py-autopep8 web-mode docker-compose-mode dockerfile-mode dash "dash" elpy yaml-mode realgud markdown-mode magit dash-functional undo-tree lua-mode fvwm-mode bookmark+)))
+>>>>>>> origin/master
  '(pos-tip-background-color "#073642")
  '(pos-tip-foreground-color "#93a1a1")
  '(safe-local-variable-values (quote ((encoding . utf-8))))
@@ -63,27 +64,27 @@
  '(vc-annotate-color-map
    (quote
     ((20 . "#dc322f")
-     (40 . "#c9485ddd1797")
-     (60 . "#bf7e73b30bcb")
+     (40 . "#ca7966832090")
+     (60 . "#c05578c91534")
      (80 . "#b58900")
-     (100 . "#a5a58ee30000")
-     (120 . "#9d9d91910000")
-     (140 . "#9595943e0000")
-     (160 . "#8d8d96eb0000")
+     (100 . "#a6088eed0000")
+     (120 . "#9e3a91a60000")
+     (140 . "#9628943b0000")
+     (160 . "#8dc596ad0000")
      (180 . "#859900")
-     (200 . "#67119c4632dd")
-     (220 . "#57d79d9d4c4c")
-     (240 . "#489d9ef365ba")
-     (260 . "#3963a04a7f29")
+     (200 . "#76ef9b6045e8")
+     (220 . "#6cd69ca95b9d")
+     (240 . "#5f5f9e06701f")
+     (260 . "#4c1a9f778424")
      (280 . "#2aa198")
-     (300 . "#288e98cbafe2")
-     (320 . "#27c19460bb87")
-     (340 . "#26f38ff5c72c")
+     (300 . "#3002984eaf4d")
+     (320 . "#2f6f93e8bae0")
+     (340 . "#2c598f79c66f")
      (360 . "#268bd2"))))
  '(vc-annotate-very-old-color nil)
  '(weechat-color-list
    (quote
-    (unspecified "#002b36" "#073642" "#990A1B" "#dc322f" "#546E00" "#859900" "#7B6000" "#b58900" "#00629D" "#268bd2" "#93115C" "#d33682" "#00736F" "#2aa198" "#839496" "#657b83")))
+    (unspecified "#002b36" "#073642" "#a7020a" "#dc322f" "#5b7300" "#859900" "#866300" "#b58900" "#0061a8" "#268bd2" "#a00559" "#d33682" "#007d76" "#2aa198" "#839496" "#657b83")))
  '(xterm-color-names
    ["#073642" "#dc322f" "#859900" "#b58900" "#268bd2" "#d33682" "#2aa198" "#eee8d5"])
  '(xterm-color-names-bright
