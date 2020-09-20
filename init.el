@@ -92,7 +92,7 @@ Emacs' directory."
 (load "setup-clojure.el")
 (load "setup-R.el")
 ;; (load "setup-js.el")
-
+(load "my-comint.el")
 
 ;------------------------------------------------------------
 ; UI & Fonts
