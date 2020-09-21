@@ -51,7 +51,7 @@
     ("#dc322f" "#cb4b16" "#b58900" "#5b7300" "#b3c34d" "#0061a8" "#2aa198" "#d33682" "#6c71c4")))
  '(package-selected-packages
    (quote
-    (ess-smart-underscore ess queue spinner ein htmlize 4clojure xkcd which-key solarized-theme rainbow-delimiters cider clojure-mode-extra-font-locking clojure-mode paredit py-autopep8 web-mode docker-compose-mode dockerfile-mode dash "dash" elpy yaml-mode realgud markdown-mode magit dash-functional undo-tree lua-mode fvwm-mode bookmark+)))
+    (poly-markdown ess-view ess-smart-underscore ess queue spinner ein htmlize 4clojure xkcd which-key solarized-theme rainbow-delimiters cider clojure-mode-extra-font-locking clojure-mode paredit py-autopep8 web-mode docker-compose-mode dockerfile-mode dash "dash" elpy yaml-mode realgud markdown-mode magit dash-functional undo-tree lua-mode fvwm-mode bookmark+)))
  '(pos-tip-background-color "#073642")
  '(pos-tip-foreground-color "#93a1a1")
  '(safe-local-variable-values (quote ((encoding . utf-8))))
