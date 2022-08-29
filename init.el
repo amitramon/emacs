@@ -1,18 +1,27 @@
-;; Emacs init file
-;; 
+;;; init --- Emacs init file
+
+;;; Commentary:
 
 ;; (defvar *my/emacs-dir* (file-name-directory user-init-file)
 ;;   "The directory containing Emacs' init file and other user files")
 
+
+;;; Code:
+
+(defun load-user-host-file ()
+  "Load a file specific to the machine."
+  (let ((host-file (concat user-emacs-directory (system-name) ".el")))
+    (when (file-exists-p host-file)
+	  (load host-file))))
+
 (defun my/update-path (dir)
-  "Add dir to system path"
+  "Add DIR to system path."
   (if (file-exists-p dir)
       (add-to-list 'exec-path dir)))
 
 
 (defun my/rel-to-emacs-dir-path (relpath)
-  "Create the full path of 'relpath' relative to the user's
-Emacs' directory."
+  "Create the full path of 'RELPATH' relative to the user's Emacs' directory."
   (concat user-emacs-directory
 	  (convert-standard-filename relpath)))
 
@@ -27,6 +36,8 @@ Emacs' directory."
 
 ;; hack to allow connecting to elpa (bug in emacs)
 (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
+
+(setq confirm-kill-emacs 'yes-or-no-p)
 
 ;------------------------------------------------------------
 ; Load some libraries
@@ -45,6 +56,8 @@ Emacs' directory."
 
 ;;;(load "dictionary")
 
+(load "keychain-environment")
+(keychain-refresh-environment)
 
 ;;------------------------------------------------------------
 ;; ido
@@ -69,7 +82,11 @@ Emacs' directory."
 
 (setq default-input-method "hebrew")
 (setq-default bidi-display-reordering t)
-(windmove-default-keybindings)
+;; (windmove-default-keybindings)
+(global-set-key (kbd "C-c <left>")  'windmove-left)
+(global-set-key (kbd "C-c <right>") 'windmove-right)
+(global-set-key (kbd "C-c <up>")    'windmove-up)
+(global-set-key (kbd "C-c <down>")  'windmove-down)
 
 ;------------------------------------------------------------
 ; Load my libraries
@@ -91,8 +108,14 @@ Emacs' directory."
 ;; Langauage-specific
 (load "setup-clojure.el")
 (load "setup-R.el")
+(load "lclzmodules-helper.el")
 ;; (load "setup-js.el")
 (load "my-comint.el")
+(load "my-db-config.el")
+
+(load "set-ligature.el")
+;;; specific settings for host
+(load-user-host-file)
 
 ;------------------------------------------------------------
 ; UI & Fonts
@@ -111,7 +134,11 @@ Emacs' directory."
 
 ;; (set-face-foreground 'highlight "white")
 ;; (set-face-background 'highlight "blue")
-(set-face-attribute 'default nil :height 140)
+;;; Not sure this is needed:
+;; (set-face-attribute 'default nil :height 140)
+;;; Set in .Xresources, but the size there seems to have no
+;;; effect (maybe due to the line above?)
+;; (set-frame-font "Fira Code Retina 11" nil t)
 
 ;; settings for new frames, e.g. those open by emacsclient --- the
 ;; font setting override the height setting above. not sure I need it.
@@ -145,7 +172,7 @@ Emacs' directory."
 (setq python-shell-interpreter "ipython3"
       python-shell-interpreter-args "-i --simple-prompt")
 
-;; use jupyter 
+;; use jupyter
 ;; (setq python-shell-interpreter "jupyter"
 ;;       python-shell-interpreter-args "console --simple-prompt" ; --kernel=python3
 ;;       python-shell-prompt-detect-failure-warning nil)
@@ -156,8 +183,10 @@ Emacs' directory."
 
 ;; use flycheck not flymake with elpy
 (when (require 'flycheck nil t)
+  (message "Using flycheck")
   (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
   (add-hook 'elpy-mode-hook 'flycheck-mode))
+
 
 ;; flychek hely says:
 ;; (add-hook 'after-init-hook #'global-flycheck-mode)
@@ -175,6 +204,8 @@ Emacs' directory."
 ;------------------------------------------------------------
 ; Misc settings
 ;------------------------------------------------------------
+
+(setq help-window-select t)		; move to help window
 
 (setq vc-follow-symlinks t)		; automatically follow symbolic links to files
 
@@ -200,7 +231,6 @@ Emacs' directory."
 ;;(setq scroll-step 4)
 (setq colon-double-space t)
 (put 'narrow-to-region 'disabled nil)
-(put 'downcase-region 'disabled nil)
 (put 'upcase-region 'disabled nil)
 
 ; return a backup file path of a give file path
@@ -237,3 +267,8 @@ If the new path's directories does not exist, create them."
 (require 'find-dired)
 (setq find-ls-option '("-print0 | xargs -0 ls -ld" . "-ld"))
 (put 'erase-buffer 'disabled nil)
+(put 'downcase-region 'disabled nil)
+
+;; Local Variables:
+;; byte-compile-warnings: (not free-vars)
+;; End:
