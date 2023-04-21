@@ -157,3 +157,12 @@
 
 (global-set-key (kbd "C-c d c") 'my-switch-dictionarry)
 ;; (global-set-key '[(f8)]		'my-switch-dictionarry)
+
+;;; https://github.com/alezost/mwim.el
+(global-set-key (kbd "C-a") 'mwim-beginning)
+(global-set-key (kbd "C-e") 'mwim-end)
+;; (global-set-key (kbd "C-a") 'mwim-beginning-of-code-or-line)
+;; (global-set-key (kbd "C-e") 'mwim-end-of-code-or-line)
+;; (global-set-key (kbd "<home>") 'mwim-beginning-of-line-or-code)
+;; (global-set-key (kbd "<end>") 'mwim-end-of-line-or-code)
+(global-set-key (kbd "<C-tab>") #'mwim)

@@ -1,6 +1,17 @@
-; Thanks to brool, http://www.brool.com/
+;;; my-utils.el --- miscellaneous utilities
+
+;; Author: Amit Ramon <amit@riseup.net>
+
+;;; Commentary:
+
+;; Miscellaneous utilities
+
+;;; Code:
+
+
+;; Thanks to brool, http://www.brool.com/
 (defun view-encrypted-file (fname)
-  "Open and decrypt a bcrypt-encrypted file."
+  "Open and decrypt a bcrypt-encrypted file FNAME."
   (interactive "FFind file: ")
   (let ((buf (create-file-buffer fname)))
     (shell-command
@@ -93,3 +104,16 @@
 
 (define-key global-map [remap exchange-point-and-mark] 'exchange-point-and-mark-no-activate)
 
+(defun load-ssh-agent-vars ()
+  "Load ssh agent environment variables"
+  (interactive)
+  (load (concat "~/.keychain/" (system-name))))
+
+;;; Thanks to https://www.emacswiki.org/emacs/FindingNonAsciiCharacters
+(defun occur-non-ascii ()
+  "Find any non-ascii characters in the current buffer."
+  (interactive)
+  (occur "[^[:ascii:]]"))
+
+(provide 'my-utils)
+;;; my-utils.el ends here

@@ -37,11 +37,15 @@
 ;; hack to allow connecting to elpa (bug in emacs)
 (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
 
-(setq confirm-kill-emacs 'yes-or-no-p)
+;; (setq confirm-kill-emacs 'yes-or-no-p)
 
 ;------------------------------------------------------------
 ; Load some libraries
 ;------------------------------------------------------------
+
+;;; Trimming whitspace on save
+(require 'ws-butler)
+(add-hook 'prog-mode-hook #'ws-butler-mode)
 
 ;; Added by Package.el.  This must come before configurations of
 ;; installed packages.  Don't delete this line.  If you don't want it,
@@ -58,6 +62,8 @@
 
 (load "keychain-environment")
 (keychain-refresh-environment)
+
+
 
 ;;------------------------------------------------------------
 ;; ido
@@ -102,13 +108,18 @@
 (load "my-org")	     ; org-mode settings
 (load "my-desktop")  ; desktop-mode settings
 
+(load "setup-python.el")
+
 ;; Clojure for the brave and true - below
 ;; For editing lisps
 (load "elisp-editing.el")
 ;; Langauage-specific
 (load "setup-clojure.el")
-(load "setup-R.el")
-(load "lclzmodules-helper.el")
+
+;; (load "setup-R.el")
+(load "setup-ess.el")
+;; (load "lclzmodules-helper.el")
+
 ;; (load "setup-js.el")
 (load "my-comint.el")
 (load "my-db-config.el")
@@ -145,6 +156,7 @@
 ;; (add-to-list 'default-frame-alist '(font . "Lucida Sans
 ;; Typewriter-10"))
 
+(message "loading solarized-dark...")
 (load-theme 'solarized-dark t)
 ;; (load-theme 'wombat t)
 ;; (load-theme 'solarized-light t)
@@ -160,44 +172,6 @@
 (defalias 'list-buffers 'ibuffer) ; make ibuffer default
 
 (setq compile-command "make -k ")
-
-
-;------------------------------------------------------------
-; Python configuration
-;------------------------------------------------------------
-
-(elpy-enable)				; python elpy
-
-;; use python3 for python shell
-(setq python-shell-interpreter "ipython3"
-      python-shell-interpreter-args "-i --simple-prompt")
-
-;; use jupyter
-;; (setq python-shell-interpreter "jupyter"
-;;       python-shell-interpreter-args "console --simple-prompt" ; --kernel=python3
-;;       python-shell-prompt-detect-failure-warning nil)
-
-;; (add-to-list 'python-shell-completion-native-disabled-interpreters
-;;              "jupyter")
-
-
-;; use flycheck not flymake with elpy
-(when (require 'flycheck nil t)
-  (message "Using flycheck")
-  (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
-  (add-hook 'elpy-mode-hook 'flycheck-mode))
-
-
-;; flychek hely says:
-;; (add-hook 'after-init-hook #'global-flycheck-mode)
-
-;; enable autopep8 formatting on save
-(require 'py-autopep8)
-(add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save)
-(add-hook 'python-mode-hook 'py-autopep8-enable-on-save)
-
-;; test to verify this is necessary
-(setq elpy-rpc-backend "jedi")
 
 
 
@@ -224,7 +198,7 @@
 
 (setq-default ispell-program-name "aspell")
 
-(setq x-select-enable-clipboard t) ; enable pasting from the X clipboard
+(setq select-enable-clipboard t) ; enable pasting from the X clipboard
 (setq x-select-enable-clipboard-manager nil) ; when t causes emacs to
 					     ; hang on killing a frame
 
@@ -237,7 +211,7 @@
 ; with full  directory mirroring from a root dir
 ; non-existant dir will be created
 (defun my/backup-file-name (fpath)
-  "Return a new file path of a given file path.
+  "Return a new file path of a given file path FPATH.
 If the new path's directories does not exist, create them."
   (let (backup-root bpath)
     ;; (setq backup-root "~/var/backup/emacs/files-backup")
@@ -268,7 +242,9 @@ If the new path's directories does not exist, create them."
 (setq find-ls-option '("-print0 | xargs -0 ls -ld" . "-ld"))
 (put 'erase-buffer 'disabled nil)
 (put 'downcase-region 'disabled nil)
+;;; init.el ends here
 
 ;; Local Variables:
 ;; byte-compile-warnings: (not free-vars)
 ;; End:
+(put 'narrow-to-page 'disabled nil)

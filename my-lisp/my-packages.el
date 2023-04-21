@@ -5,7 +5,7 @@
 
 (setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
                          ;; ("marmalade" . "https://marmalade-repo.org/packages/")
-                         ("melpa" . "https://melpa.org/packages/")
+                         ("melpa" . "https://stable.melpa.org/packages/")
 			 ("org" . "https://orgmode.org/elpa/")))
 
 
@@ -39,8 +39,13 @@
 	;; beutify python code
 	py-autopep8
 
+	blacken
+
 	;; git emacs interface
 	magit
+
+	;; load ssh-agent environment variables
+	keychain-environment
 
 	;; debuggers front end
 	realgud
@@ -133,13 +138,27 @@
 
 	;; R
 	ess
-	ess-R-data-view
-	;; ess-smart-equal
+	;; ess-R-data-view
+	ess-smart-equals
 	;; ess-smart-underscore
-	ess-view
+	;; ess-view
 	polymode
 	poly-markdown
 	poly-R
+
+	use-package
+
+	mwim
+
+	flycheck
+
+	ws-butler
+
+	csv-mode
+
+	protobuf-mode
+
+	projectile
 	)
       )
 
